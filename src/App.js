@@ -1,10 +1,10 @@
-import { Flowbite } from "flowbite-react";
-import { Navbar, Home, Register } from "./hooks";
+import { Navbar, Home, Register, Login } from "./hooks";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
+
+
   return (
-    <Flowbite>
       <Router>
         <header>
           <Navbar />
@@ -16,9 +16,9 @@ function App() {
         </main>
         <Routes>
           <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </Router>
-    </Flowbite>
   );
 }
 

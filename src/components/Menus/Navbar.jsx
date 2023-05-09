@@ -1,62 +1,48 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { Navbar, Dropdown, Avatar } from "flowbite-react";
+import { Flex, Box, Text, Link } from "rebass";
 
 export default function NavBar() {
   const location = useLocation();
 
+  const jwtToken = localStorage.getItem("jwtToken");
+
   return (
     <>
-      <Navbar fluid={true} rounded={true}>
-        <Navbar.Brand href="/">
-          <img
-            src="https://flowbite.com/docs/images/logo.svg"
-            className="mr-3 h-6 sm:h-9"
-            alt="Flowbite Logo"
-          />
-          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-            HorseBreeders
-          </span>
-        </Navbar.Brand>
-        <div className="flex md:order-2">
-          <Dropdown
-            arrowIcon={false}
-            inline={true}
-            label={
-              <Avatar
-                alt="User settings"
-                img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                rounded={true}
-              />
-            }
-          >
-            <Dropdown.Header>
-              <span className="block text-sm">Bonnie Green</span>
-              <span className="block truncate text-sm font-medium">
-                name@flowbite.com
-              </span>
-            </Dropdown.Header>
-            <Dropdown.Item>Dashboard</Dropdown.Item>
-            <Dropdown.Item>Settings</Dropdown.Item>
-            <Dropdown.Item>Earnings</Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item>Sign out</Dropdown.Item>
-          </Dropdown>
-          <Navbar.Toggle />
-        </div>
-        <Navbar.Collapse>
-          <Navbar.Link href="/" active={true}>
+      <Flex color="white" bg="black" alignItems="center">
+        <Link className="title" width={1 / 3} ml={3}  p={2} fontWeight="bold" href="/">
+          HorseBreeders
+        </Link>
+
+        <Flex width={1 / 3}>
+          <Link p={2} variant="nav" href="/" mx="auto">
             Home
-          </Navbar.Link>
-          <Navbar.Link href="/">Finder</Navbar.Link>
-          <Navbar.Link href="/">News</Navbar.Link>
-          <Navbar.Link href="/">My ads</Navbar.Link>
-
-          <Navbar.Link href="/register">register(temp)</Navbar.Link>
-          <Navbar.Link href="/login">login(temp)</Navbar.Link>
-
-        </Navbar.Collapse>
-      </Navbar>
+          </Link>
+          <Link p={2} variant="nav" href="/" mx="auto">
+            Finder
+          </Link>
+          <Link p={2} variant="nav" href="/" mx="auto">
+            News
+          </Link>
+          <Link p={2} variant="nav" href="/" mx="auto">
+            My ads
+          </Link>
+        </Flex>
+        <Flex width={1 / 3}>
+          {jwtToken != null ? (
+            <Text ml="auto" mr={4}>You are logged in</Text>
+          ) : (
+            <>
+              <Link variant="nav" href="/login" ml="auto" mr={2}>
+                Login
+              </Link>
+              <Link variant="nav" href="/register" mr={5} ml={5}>
+                Register
+              </Link>
+            </>
+          )}
+        </Flex>
+      </Flex>
     </>
   );
 }

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Label, Input } from "@rebass/forms";
+import { Box, Flex, Button, Text, Link } from "rebass";
 
 const SignUp = () => {
   const [userCredentials, setUserCredentials] = useState({
@@ -7,6 +9,7 @@ const SignUp = () => {
     password: "",
     confirmPassword: "",
   });
+  const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,33 +32,31 @@ const SignUp = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        window.location.href = "/login";
+        if (data.errorCode) {
+          setError(data.message);
+        } else {
+          setError("");
+          localStorage.setItem("jwtToken", data.jwtToken);
+          window.location.href = "/";
+        }
       });
   };
 
   return (
-    <section className="w-full h-screen m-auto -mb-20">
-      <div className="flex items-center align-middle justify-center">
-        <div className="w-full bg-white rounded-xl shadow-xl sm:max-w-lg dark:bg-gray-800">
-          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-              Create an account
-            </h1>
-            <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Your name
-                </label>
-                <input
-                  type="text"
-                  name="name"
+    <>
+      <Flex mt={"10%"}>
+        <Box width={1 / 3}></Box>
+        <Box width={1 / 3} py={3}>
+          <Text className="title" mb={"5%"} fontSize={32}>Create an account</Text>
+          <Box as='form' onSubmit={handleSubmit}>
+            <Flex mx={-2} mb={3}>
+              <Box width={1 / 2} px={2}>
+                <Label htmlFor="name">Name</Label>
+                <Input
                   id="name"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="John Doe"
-                  required=""
+                  name="name"
+                  placeholder="Jane Doe"
+                  type="text"
                   value={userCredentials.name}
                   onChange={(e) =>
                     setUserCredentials({
@@ -64,21 +65,14 @@ const SignUp = () => {
                     })
                   }
                 />
-              </div>
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Your email
-                </label>
-                <input
-                  type="email"
-                  name="email"
+              </Box>
+              <Box width={1 / 2} px={2}>
+                <Label htmlFor="name">Email</Label>
+                <Input
                   id="email"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="name@company.com"
-                  required=""
+                  name="email"
+                  placeholder="jane@doe.com"
+                  type="email"
                   value={userCredentials.email}
                   onChange={(e) =>
                     setUserCredentials({
@@ -87,22 +81,16 @@ const SignUp = () => {
                     })
                   }
                 />
-              </div>
-              <div>
-                <label
-                  htmlFor="password"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Password
-                </label>
-                <input
-                  type="password"
-                  name="password"
+              </Box>
+            </Flex>
+            <Flex mx={-2} mb={3}>
+              <Box width={1 / 2} px={2}>
+                <Label htmlFor="name">Password</Label>
+                <Input
                   id="password"
+                  name="password"
                   placeholder="••••••••"
-                  className="bg-gray-50
-                  border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required=""
+                  type="password"
                   value={userCredentials.password}
                   onChange={(e) =>
                     setUserCredentials({
@@ -111,21 +99,14 @@ const SignUp = () => {
                     })
                   }
                 />
-              </div>
-              <div>
-                <label
-                  htmlFor="confirmPassword"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Confirm Password
-                </label>
-                <input
-                  type="password"
-                  name="confirmPassword"
+              </Box>
+              <Box width={1 / 2} px={2}>
+                <Label htmlFor="name">Confirm password</Label>
+                <Input
                   id="confirmPassword"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  name="confirmPassword"
+                  type="password"
                   placeholder="••••••••"
-                  required=""
                   value={userCredentials.confirmPassword}
                   onChange={(e) =>
                     setUserCredentials({
@@ -134,29 +115,25 @@ const SignUp = () => {
                     })
                   }
                 />
-              </div>
-              <div>
-                <button
-                  type="submit"
-                  className="w-full px-4 py-2 text-base font-semibold text-white transition duration-200 bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-blue-500 focus:ring-2 focus:ring-offset-2 active:bg-blue-800"
-                >
-                  Create account
-                </button>
-              </div>
-            </form>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              Already have an account?{" "}
-              <a
-                href="/login"
-                className="text-blue-600 hover:text-blue-700 dark:text-blue-500 dark:hover:text-blue-400"
-              >
-                Login
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+              </Box>
+            </Flex>
+            <Button
+              type="submit"
+              color="white"
+              backgroundColor="black"
+              width={1}
+              mt={3}
+            >
+              Create account
+            </Button>
+            <Text mt={3}>Already have an account? <Link href="/login">Login</Link></Text>
+          </Box>
+          <Text color="red" mt={3}>{error}</Text>
+        </Box>
+        <Box width={1 / 3}></Box>
+      </Flex>
+
+    </>
   );
 };
 

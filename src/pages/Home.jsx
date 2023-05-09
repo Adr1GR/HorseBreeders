@@ -1,10 +1,14 @@
 import React from "react";
+import { Text } from "rebass";
 
 const Home = () => {
   return (
-    <div>
-        <h1>Home</h1>
-    </div>
+    <>
+      <Text className="title" mb={"5%"} fontSize={32}>
+        HorseBreeders
+      </Text>
+      <Text fontSize={16}>Work in progress 🛠️</Text>
+    </>
   );
 };
 
