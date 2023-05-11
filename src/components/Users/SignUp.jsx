@@ -17,7 +17,7 @@ const SignUp = () => {
     e.preventDefault();
     const { name, email, password, confirmPassword } = userCredentials;
 
-    fetch(process.env.REACT_APP_SERVER_URL + "/api/user/add", {
+    fetch(process.env.API_URL + "/api/user/add", {
       method: "POST",
       crossDomain: true,
       headers: {
