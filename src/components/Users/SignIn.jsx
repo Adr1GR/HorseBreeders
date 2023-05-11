@@ -32,7 +32,7 @@ const SignIn = () => {
           setError(data.message);
         } else {
           setError("");
-          localStorage.setItem("jwtToken", data.jwtToken);
+          localStorage.setItem("userJWT", data.userJWT);
           window.location.href = "/";
         }
       });
@@ -40,7 +40,7 @@ const SignIn = () => {
 
   return (
     <>
-      <Flex mt={"10%"}>
+      <Flex mt={"8%"}>
         <Box width={1 / 3}></Box>
         <Box width={1 / 3} py={3}>
           <Text className="title" mb={"5%"} fontSize={32}>

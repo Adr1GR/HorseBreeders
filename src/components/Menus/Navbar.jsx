@@ -1,16 +1,29 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { Flex, Box, Text, Link } from "rebass";
+import { Flex, Box, Text, Link, Button } from "rebass";
+
+function handleLogout() {
+  localStorage.removeItem("userJWT");
+  window.location.href = "/";
+}
 
 export default function NavBar() {
   const location = useLocation();
 
-  const jwtToken = localStorage.getItem("jwtToken");
+  const userJWT = localStorage.getItem("userJWT");
 
   return (
     <>
       <Flex color="white" bg="black" alignItems="center">
-        <Link className="title" width={1 / 3} ml={3}  p={2} fontWeight="bold" href="/">
+        <Link
+          className="title"
+          fontSize={20}
+          width={1 / 3}
+          ml={3}
+          p={0}
+          fontWeight="bold"
+          href="/"
+        >
           HorseBreeders
         </Link>
 
@@ -29,8 +42,10 @@ export default function NavBar() {
           </Link>
         </Flex>
         <Flex width={1 / 3}>
-          {jwtToken != null ? (
-            <Text ml="auto" mr={4}>You are logged in</Text>
+          {userJWT != null ? (
+            <Button ml="auto" mr={4} onClick={handleLogout}>
+              Logout
+            </Button>
           ) : (
             <>
               <Link variant="nav" href="/login" ml="auto" mr={2}>
