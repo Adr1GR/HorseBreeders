@@ -5,6 +5,9 @@ import { Box, Flex, Button, Text, Link } from "rebass";
 //import { BsGoogle } from "react-icons/bs";
 
 const SignUp = () => {
+
+  console.log("API_URL:" + process.env.REACT_APP_API_URL);
+  console.log("FRONTEND_URL:" + process.env.REACT_APP_FRONTEND_URL);
   const [userCredentials, setUserCredentials] = useState({
     name: "",
     email: "",
@@ -17,14 +20,14 @@ const SignUp = () => {
     e.preventDefault();
     const { name, email, password, confirmPassword } = userCredentials;
 
-    fetch(process.env.API_URL + "/api/user/add", {
+    fetch(process.env.REACT_APP_API_URL + "/api/user/add", {
       method: "POST",
       crossDomain: true,
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
         "Access-Control-Allow-Origin": "*",
-        "Origin": process.env.REACT_APP_API_URL,
+        "Origin": process.env.REACT_APP_FRONTEND_URL,
       },
       body: JSON.stringify({
         name,
