@@ -13,7 +13,7 @@ const SignIn = () => {
     e.preventDefault();
     const { email, password } = userCredentials;
 
-    fetch(process.env.REACT_APP_SERVER_URL + "/api/user/login", {
+    fetch(process.env.REACT_APP_SERVER_URL + "api/user/login", {
       method: "POST",
       crossDomain: true,
       headers: {
