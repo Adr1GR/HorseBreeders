@@ -20,6 +20,7 @@ const SignIn = () => {
         "Content-Type": "application/json",
         Accept: "application/json",
         "Access-Control-Allow-Origin": "*",
+        "Origin": process.env.API_URL,
       },
       body: JSON.stringify({
         email,
