@@ -17,9 +17,9 @@ const SignIn = () => {
       method: "POST",
       crossDomain: true,
       headers: {
-        Origin: process.env.REACT_APP_FRONTEND_URL,
         "Content-Type": "application/json",
         Accept: "application/json",
+        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({
         email,
