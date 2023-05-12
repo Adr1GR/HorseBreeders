@@ -1,0 +1,20 @@
+{
+    "version": 2,
+    "name": "horsebreeders-frontend",
+    "builds": [
+      {
+        "src": "next.config.js",
+        "use": "@vercel/next"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/index.html"
+      }
+    ],
+    "env": {
+      "API_URL": "https://hb-server.vercel.app"
+    }
+  }
+  

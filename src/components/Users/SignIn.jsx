@@ -13,14 +13,13 @@ const SignIn = () => {
     e.preventDefault();
     const { email, password } = userCredentials;
 
-    fetch(process.env.API_URL + "/api/user/login", {
+    fetch(`${process.env.REACT_APP_API_URL}/api/user/login`, {
       method: "POST",
       crossDomain: true,
       headers: {
+        Origin: process.env.REACT_APP_FRONTEND_URL,
         "Content-Type": "application/json",
         Accept: "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "Origin": process.env.FRONTEND_URL,
       },
       body: JSON.stringify({
         email,
@@ -49,7 +48,7 @@ const SignIn = () => {
           </Text>
           <Box as="form" onSubmit={handleSubmit}>
             <Flex mx={-2} mb={3}>
-            <Box width={1 / 2} px={2}>
+              <Box width={1 / 2} px={2}>
                 <Label htmlFor="name">Email</Label>
                 <Input
                   id="email"
@@ -92,7 +91,9 @@ const SignIn = () => {
               Login
             </Button>
           </Box>
-          <Text mt={3}>Don't have an account? <Link href="/register">Register</Link></Text>
+          <Text mt={3}>
+            Don't have an account? <Link href="/register">Register</Link>
+          </Text>
           <Text color="red" mt={3}>
             {error}
           </Text>

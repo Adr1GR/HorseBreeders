@@ -5,7 +5,6 @@ import { Box, Flex, Button, Text, Link } from "rebass";
 //import { BsGoogle } from "react-icons/bs";
 
 const SignUp = () => {
-
   console.log("API_URL:" + process.env.REACT_APP_API_URL);
   console.log("FRONTEND_URL:" + process.env.REACT_APP_FRONTEND_URL);
   const [userCredentials, setUserCredentials] = useState({
@@ -14,20 +13,21 @@ const SignUp = () => {
     password: "",
     confirmPassword: "",
   });
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState([{}]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
     const { name, email, password, confirmPassword } = userCredentials;
 
-    fetch(process.env.REACT_APP_API_URL + "/api/user/add", {
+    fetch(`${process.env.REACT_APP_API_URL}/api/user/add`, {
       method: "POST",
       crossDomain: true,
       headers: {
+        Origin: process.env.REACT_APP_FRONTEND_URL,
         "Content-Type": "application/json",
         Accept: "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "Origin": process.env.REACT_APP_FRONTEND_URL,
       },
       body: JSON.stringify({
         name,
@@ -38,7 +38,7 @@ const SignUp = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.errors);
+        setLoading(false);
         if (data.errors) {
           const newErrors = {};
           data.errors.forEach((e) => {
@@ -131,7 +131,9 @@ const SignUp = () => {
                     })
                   }
                 />
-                {error.confirmPassword && <Text color="red">{error.confirmPassword} </Text>}
+                {error.confirmPassword && (
+                  <Text color="red">{error.confirmPassword} </Text>
+                )}
               </Box>
             </Flex>
             <Text>
@@ -151,7 +153,8 @@ const SignUp = () => {
               width={1}
               mt={3}
             >
-              Create account
+              <img src="" alt="" />
+              {loading ? "Loading..." : "Sign Up"}
             </Button>
             {/* <Flex>
               <Text mt={3} mx="auto">
