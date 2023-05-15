@@ -51,7 +51,7 @@ const SignIn = () => {
           </Text>
           <Box as="form" onSubmit={handleSubmit}>
             
-              <Box width={1} px={2}>
+              <Box width={1} >
                 <Label htmlFor="name">Email</Label>
                 <Input
                   id="email"
@@ -67,7 +67,7 @@ const SignIn = () => {
                   }
                 />
               </Box>
-              <Box width={1} px={2} py={2}>
+              <Box width={1} py={2}>
                 <Label htmlFor="name">Password</Label>
                 <Input
                   id="password"

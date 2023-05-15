@@ -35,7 +35,7 @@ export default function NavBar() {
   return (
     <>
       {!isOpen && (
-        <Flex color="white" bg="black" alignItems="center">
+        <Flex color="white" bg="black" alignItems="center" height={["5vh"]}>
           <Link
             className="title"
             fontSize={20}
