@@ -41,14 +41,17 @@ const SignIn = () => {
   return (
     <>
       <Flex mt={"8%"}>
-        <Box width={1 / 3}></Box>
-        <Box width={1 / 3} py={3}>
+        <Box
+          width={[1 / 5, 1 / 5, 1 / 3]}
+          display={["none", "flex", "flex"]}
+        ></Box>
+        <Box width={[1, 1, 1 / 3]} py={3} mx={3}>
           <Text className="title" mb={"5%"} fontSize={32}>
             Login to your account
           </Text>
           <Box as="form" onSubmit={handleSubmit}>
-            <Flex mx={-2} mb={3}>
-              <Box width={1 / 2} px={2}>
+            
+              <Box width={1} px={2}>
                 <Label htmlFor="name">Email</Label>
                 <Input
                   id="email"
@@ -64,7 +67,7 @@ const SignIn = () => {
                   }
                 />
               </Box>
-              <Box width={1 / 2} px={2}>
+              <Box width={1} px={2} py={2}>
                 <Label htmlFor="name">Password</Label>
                 <Input
                   id="password"
@@ -79,8 +82,6 @@ const SignIn = () => {
                     })
                   }
                 />
-              </Box>
-            </Flex>
             <Button
               type="submit"
               color="white"
@@ -90,6 +91,8 @@ const SignIn = () => {
             >
               Login
             </Button>
+              </Box>
+            
           </Box>
           <Text mt={3}>
             Don't have an account? <Link href="/register">Register</Link>
@@ -98,7 +101,10 @@ const SignIn = () => {
             {error}
           </Text>
         </Box>
-        <Box width={1 / 3}></Box>
+        <Box
+          width={[1 / 5, 1 / 5, 1 / 3]}
+          display={["none", "flex", "flex"]}
+        ></Box>
       </Flex>
     </>
   );
