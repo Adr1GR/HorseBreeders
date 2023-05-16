@@ -1,15 +1,13 @@
 import React from "react";
 import { Card, Image, Heading } from "rebass";
 import { Link } from "react-router-dom";
+import HorseDetails from "./HorseDetails";
 
 const HorseCard = ({ horse }) => {
-  const randomImage = `https://source.unsplash.com/400x300/?horse/` + horse._id;
-
   return (
-    <Link to={`/horse/${horse._id}`}>
+    <Link to={{ pathname: `/horse/${horse._id}`}}>
       <Card width={400} variant="primary" bg={"#ebebeb"} p={4}>
-        <Image src={randomImage} />
-
+        <Image src={horse.pictures[0]} />
         <Heading as="h3">{horse.name}</Heading>
         <p>Breed: {horse.breed}</p>
         <p>Age: {horse.age}</p>
