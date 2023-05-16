@@ -20,15 +20,14 @@ const HorseDetails = () => {
 
   return (
     <Box p={4}>
-      <Heading as="h2" fontSize={24} mb={3}>
-        Horse Details - ID: {horse._id}
+      <Heading as="h2" fontSize={36} mb={3}>
+        {horse.name}
       </Heading>
       <Box mb={3}>
-        {horse.pictures && <Image src={horse.pictures[0]} alt="Horse" width={400} height={300} />}
+        {horse.pictures && (
+          <Image src={horse.pictures[0]} alt="Horse" width={400} height={300} />
+        )}
       </Box>
-      <Text>
-        <strong>Name:</strong> {horse.name}
-      </Text>
       <Text>
         <strong>Breed:</strong> {horse.breed}
       </Text>

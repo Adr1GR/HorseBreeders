@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Box, Flex, Text, Button } from "rebass";
+import { Box, Flex, Text, Button, Image } from "rebass";
 import { Input, Label, Select } from "@rebass/forms";
 import HorseCard from "./HorseCard";
 import { AiOutlineCloseCircle } from "react-icons/ai";
@@ -19,6 +19,29 @@ const List = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef();
+
+  const horseBreeds = [
+    "Akhal-Teke",
+    "American Cream Draft",
+    "American Paint Horse",
+    "American Quarter Horse",
+    "Andalusian",
+    "Appaloosa",
+    "Arabian",
+    "Australian Stock Horse",
+    "Belgian",
+    "Clydesdale",
+    "Friesian",
+    "Hanoverian",
+    "Lipizzan",
+    "Morgan",
+    "Mustang",
+    "Percheron",
+    "Pinto",
+    "Shire",
+    "Thoroughbred",
+    "Warmblood",
+  ];
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -112,7 +135,15 @@ const List = () => {
   };
 
   if (!horseList) {
-    return <Text>Loading...</Text>;
+    return (
+      <Flex justifyContent="center" alignItems="center" mt="20%">
+        <img
+          width={"5%"}
+          src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWM5OGM2MjVjMTM2NGNkNjk0ZDMxMmMxMmNkMmNkM2M4YmIyNmRhNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PXM/sUaclfFkOtvm0vGNGf/giphy.gif"
+          alt="Loading..."
+        />
+      </Flex>
+    );
   }
 
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -129,7 +160,7 @@ const List = () => {
       <Text className="title" mb={"2%"} fontSize={32}>
         Horse List
       </Text>
-      
+
       {!isOpen && (
         <Flex justifyContent="center" mb={4}>
           <Box
@@ -160,13 +191,20 @@ const List = () => {
           </Box>
           <Box>
             <Label>Breed:</Label>
-            <Input
+            <Select
               width={[1, 1 / 2, 1 / 4]}
-              type="text"
+              id="horseBreed"
               value={breedFilter}
               onChange={(e) => setBreedFilter(e.target.value)}
               onBlur={handleFilterChange}
-            />
+            >
+              <option value="">All</option>
+              {horseBreeds.map((breed) => (
+                <option key={breed} value={breed}>
+                  {breed}
+                </option>
+              ))}
+            </Select>
           </Box>
           <Box>
             <Label>Min Age:</Label>
@@ -222,23 +260,21 @@ const List = () => {
             />
           </Box>
           <Button
-              p={2}
-              aria-label="Toggle Menu"
-              onClick={toggleMenu}
-              mx="auto"
-              mt={3}
-              color={"black"}
-              display={"block"}
-
-            >
-              <AiOutlineCloseCircle mx="auto"/>
-            </Button>
+            p={2}
+            aria-label="Toggle Menu"
+            onClick={toggleMenu}
+            mx="auto"
+            mt={3}
+            color={"black"}
+            display={"block"}
+          >
+            <AiOutlineCloseCircle mx="auto" />
+          </Button>
         </Box>
-        
       )}
       <Flex flexWrap="wrap" display={"flex"}>
         {currentItems.map((horse) => (
-          <Box width={["100%", "50%", "33.33%" , "25%"]} key={horse._id} pb={4}>
+          <Box width={["100%", "50%", "33.33%", "25%"]} key={horse._id} pb={4}>
             <HorseCard horse={horse} />
           </Box>
         ))}
