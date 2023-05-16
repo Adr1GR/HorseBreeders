@@ -206,26 +206,28 @@ const List = () => {
               ))}
             </Select>
           </Box>
-          <Box>
-            <Label>Min Age:</Label>
-            <Input
-              width={[1, 1 / 2, 1 / 4]}
-              type="number"
-              value={minAgeFilter}
-              onChange={(e) => setMinAgeFilter(e.target.value)}
-              onBlur={handleFilterChange}
-            />
-          </Box>
-          <Box>
-            <Label>Max Age:</Label>
-            <Input
-              width={[1, 1 / 2, 1 / 4]}
-              type="number"
-              value={maxAgeFilter}
-              onChange={(e) => setMaxAgeFilter(e.target.value)}
-              onBlur={handleFilterChange}
-            />
-          </Box>
+          <Flex>
+            <Box width={"50%"} pr={1}>
+              <Label>Min Age:</Label>
+              <Input
+                width={[1, 1 / 2, 1 / 4]}
+                type="number"
+                value={minAgeFilter}
+                onChange={(e) => setMinAgeFilter(e.target.value)}
+                onBlur={handleFilterChange}
+              />
+            </Box>
+            <Box  width={"50%"} pl={1}>
+              <Label>Max Age:</Label>
+              <Input
+                width={[1, 1 / 2, 1 / 4]}
+                type="number"
+                value={maxAgeFilter}
+                onChange={(e) => setMaxAgeFilter(e.target.value)}
+                onBlur={handleFilterChange}
+              />
+            </Box>
+          </Flex>
           <Box>
             <Label>Gender:</Label>
             <Select
