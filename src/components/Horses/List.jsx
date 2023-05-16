@@ -131,7 +131,7 @@ const List = () => {
       </Text>
       
       {!isOpen && (
-        <Flex justifyContent="center">
+        <Flex justifyContent="center" mb={4}>
           <Box
             sx={{ cursor: "pointer" }}
             onClick={toggleMenu}
@@ -226,17 +226,19 @@ const List = () => {
               aria-label="Toggle Menu"
               onClick={toggleMenu}
               mx="auto"
+              mt={3}
               color={"black"}
               display={"block"}
+
             >
               <AiOutlineCloseCircle mx="auto"/>
             </Button>
         </Box>
         
       )}
-      <Flex flexWrap="wrap">
+      <Flex flexWrap="wrap" display={"flex"}>
         {currentItems.map((horse) => (
-          <Box width={["100%", "50%", "33.33%"]} key={horse._id} pb={4}>
+          <Box width={["100%", "50%", "33.33%" , "25%"]} key={horse._id} pb={4}>
             <HorseCard horse={horse} />
           </Box>
         ))}
