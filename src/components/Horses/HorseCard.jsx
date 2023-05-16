@@ -24,7 +24,7 @@ const HorseCard = ({ horse }) => {
             }}
           />
           <Heading mt={2}>
-            <Text className="title">{horse.name}</Text>
+            <Text className="title-font">{horse.name}</Text>
           </Heading>
           <Text>Breed: {horse.breed}</Text>
           <Text>Age: {horse.age}</Text>

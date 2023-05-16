@@ -5,6 +5,7 @@
 :root {
     --font-sans: 'Manrope', medium, sans-serif;
     --font-titles: 'PP Hatton', serif;
+    --title-color: #1D3557;
 }
 
 body {
@@ -12,6 +13,10 @@ body {
     background-color: #f7fafc;
 }
 
-.title {
+.title-font {
     font-family: var(--font-titles);
+}
+
+.title-color {
+    color: var(--title-color);
 }

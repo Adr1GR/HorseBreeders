@@ -35,9 +35,9 @@ export default function NavBar() {
   return (
     <>
       {!isOpen && (
-        <Flex color="white" bg="black" alignItems="center" height={[40, 40, 40]}>
+        <Flex color="white" bg={"#1D3557"} alignItems="center" height={[40, 40, 40]}>
           <Link
-            className="title"
+            className="title-font"
             fontSize={20}
             width={1 / 3}
             ml={3}
@@ -132,7 +132,7 @@ export default function NavBar() {
         <Box
           color="white"
           p={2}
-          bg="black"
+          bg={"#1D3557"}
           display={["block", "none", "none"]}
         >
           <Flex flexDirection="column">

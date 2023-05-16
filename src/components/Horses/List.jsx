@@ -15,7 +15,7 @@ const List = () => {
   const [ownerFilter, setOwnerFilter] = useState("");
   const [stablesFilter, setStablesFilter] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(21);
+  const [itemsPerPage, setItemsPerPage] = useState(20);
 
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef();
@@ -138,7 +138,7 @@ const List = () => {
     return (
       <Flex justifyContent="center" alignItems="center" mt="20%">
         <img
-          width={"5%"}
+          width={["10%", "10%", "5%"]}
           src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWM5OGM2MjVjMTM2NGNkNjk0ZDMxMmMxMmNkMmNkM2M4YmIyNmRhNSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PXM/sUaclfFkOtvm0vGNGf/giphy.gif"
           alt="Loading..."
         />
@@ -157,7 +157,7 @@ const List = () => {
 
   return (
     <Box p={3}>
-      <Text className="title" mb={"2%"} fontSize={32}>
+      <Text className="title-font title-color" mb={"2%"} fontSize={32}>
         Horse List
       </Text>
 
@@ -168,7 +168,7 @@ const List = () => {
             onClick={toggleMenu}
             width={["100%", "50%", "33.33%"]}
             p={2}
-            bg="black"
+            bg={"#1D3557"}
             color="white"
             fontSize={16}
             fontWeight="bold"
