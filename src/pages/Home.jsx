@@ -7,7 +7,8 @@ const Home = () => {
       <Text className="title" mb={"5%"} fontSize={32}>
         HorseBreeders
       </Text>
-      <Text fontSize={16}>Work in progress 🛠️</Text>
+      <Text fontSize={24}>Welcome to HorseBreeders</Text>
+      <Text fontSize={16}>Find your horse, breed your horse</Text>
     </>
   );
 };

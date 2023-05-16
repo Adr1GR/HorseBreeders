@@ -61,7 +61,7 @@ export default function NavBar() {
             <Link
               p={2}
               variant="nav"
-              href="/"
+              href="/finder"
               mx="auto"
               display={["none", "flex", "flex"]}
             >
@@ -139,7 +139,7 @@ export default function NavBar() {
             <Link p={2} variant="nav" href="/" mx="auto">
               Home
             </Link>
-            <Link p={2} variant="nav" href="/" mx="auto">
+            <Link p={2} variant="nav" href="/finder" mx="auto">
               Finder
             </Link>
             <Link p={2} variant="nav" href="/" mx="auto">
