@@ -1,16 +1,21 @@
 import React from "react";
+import { Card, Image, Heading } from "rebass";
 import { Link } from "react-router-dom";
-import { Card, Image, Text, Heading } from "rebass";
 
 const HorseCard = ({ horse }) => {
-  const randomImage = `https://source.unsplash.com/300x200/?horse/${horse._id}`;
+  const randomImage = `https://source.unsplash.com/400x300/?horse/` + horse._id;
 
   return (
     <Link to={`/horse/${horse._id}`}>
-    <Card width={256}>
-      <Image src={randomImage} />
-      <Heading>Horse Id: {horse._id}</Heading>
-    </Card>
+      <Card width={400} variant="primary" bg={"#ebebeb"} p={4}>
+        <Image src={randomImage} />
+
+        <Heading as="h3">{horse.name}</Heading>
+        <p>Breed: {horse.breed}</p>
+        <p>Age: {horse.age}</p>
+        <p>Gender: {horse.gender}</p>
+        <p>Owner: {horse.owner}</p>
+      </Card>
     </Link>
   );
 };

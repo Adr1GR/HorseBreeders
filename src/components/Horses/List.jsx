@@ -31,7 +31,7 @@ const List = () => {
 
       <Flex flexWrap="wrap">
         {horseList.map((horse) => (
-          <Box width={["100%", "50%", "33.33%"]} key={horse._id}>
+          <Box width={["100%", "50%", "33.33%"]} key={horse._id} pb={4}>
             <HorseCard horse={horse} />
           </Box>
         ))}
