@@ -7,7 +7,7 @@ function App() {
       <header>
         <Navbar />
       </header>
-      <main className="mt-20 ml-0 mb-20 sm:ml-32 sm:mb-0">
+      <main className="mt-10 ml-0 mr-0 mb-10 sm:ml-16 sm:mr-16 sm:mb-0">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/finder" element={<Finder />} />
