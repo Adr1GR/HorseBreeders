@@ -46,56 +46,54 @@ const SignIn = () => {
           display={["none", "flex", "flex"]}
         ></Box>
         <Box width={[1, 1, 1 / 3]} py={3} mx={3}>
-          <Text className="title" mb={"5%"} fontSize={32}>
+          <Text className="title-font title-color" mb={"5%"} fontSize={32}>
             Login to your account
           </Text>
           <Box as="form" onSubmit={handleSubmit}>
-            
-              <Box width={1} >
-                <Label htmlFor="name">Email</Label>
-                <Input
-                  id="email"
-                  name="email"
-                  placeholder="jane@doe.com"
-                  type="email"
-                  value={userCredentials.email}
-                  onChange={(e) =>
-                    setUserCredentials({
-                      ...userCredentials,
-                      email: e.target.value,
-                    })
-                  }
-                />
-              </Box>
-              <Box width={1} py={2}>
-                <Label htmlFor="name">Password</Label>
-                <Input
-                  id="password"
-                  name="password"
-                  placeholder="••••••••"
-                  type="password"
-                  value={userCredentials.password}
-                  onChange={(e) =>
-                    setUserCredentials({
-                      ...userCredentials,
-                      password: e.target.value,
-                    })
-                  }
-                />
-            <Button
-              type="submit"
-              color="white"
-              backgroundColor="black"
-              width={1}
-              mt={3}
-            >
-              Login
-            </Button>
-              </Box>
-            
+            <Box width={1}>
+              <Label htmlFor="name">Email</Label>
+              <Input
+                id="email"
+                name="email"
+                placeholder="jane@doe.com"
+                type="email"
+                value={userCredentials.email}
+                onChange={(e) =>
+                  setUserCredentials({
+                    ...userCredentials,
+                    email: e.target.value,
+                  })
+                }
+              />
+            </Box>
+            <Box width={1} py={2}>
+              <Label htmlFor="name">Password</Label>
+              <Input
+                id="password"
+                name="password"
+                placeholder="••••••••"
+                type="password"
+                value={userCredentials.password}
+                onChange={(e) =>
+                  setUserCredentials({
+                    ...userCredentials,
+                    password: e.target.value,
+                  })
+                }
+              />
+              <Button
+                bg={"#1D3557"}
+                type="submit"
+                color="white"
+                width={1}
+                mt={3}
+              >
+                Login
+              </Button>
+            </Box>
           </Box>
           <Text mt={3}>
-            Don't have an account? <Link href="/register">Register</Link>
+            Don't have an account? <Link href="/register" sx={{ textDecoration: "underline" }}>Register</Link>
           </Text>
           <Text color="red" mt={3}>
             {error}

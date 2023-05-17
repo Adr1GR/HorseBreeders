@@ -59,7 +59,7 @@ const SignUp = () => {
           display={["none", "flex", "flex"]}
         ></Box>
         <Box width={[1, 1, 1 / 3]} py={3} mx={3}>
-          <Text className="title" mb={"5%"} fontSize={32}>
+          <Text className="title-font title-color" mb={"5%"} fontSize={32}>
             Create an account
           </Text>
           <Box as="form" onSubmit={handleSubmit}>
@@ -148,9 +148,9 @@ const SignUp = () => {
               </Link>
             </Text>
             <Button
+              bg={"#1D3557"}
               type="submit"
               color="white"
-              backgroundColor="black"
               width={1}
               mt={3}
             >
@@ -158,7 +158,7 @@ const SignUp = () => {
               {loading ? "Loading..." : "Sign Up"}
             </Button>
             <Text mt={3} width={1}>
-              Already have an account? <Link href="/login">Login</Link>
+              Already have an account? <Link href="/login" sx={{ textDecoration: "underline" }}>Login</Link>
             </Text>
           </Box>
           <Text color="red" mt={3}></Text>

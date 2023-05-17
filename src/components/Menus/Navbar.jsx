@@ -57,7 +57,7 @@ export default function NavBar() {
               display={["none", "flex", "flex"]}
             >
               Home
-            </Link>
+            </Link> 
             <Link
               p={2}
               variant="nav"
