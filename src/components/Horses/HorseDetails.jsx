@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Box, Image, Heading, Text } from "rebass";
+import { Box, Image, Heading, Text, Flex } from "rebass";
 import { useParams } from "react-router-dom";
 
 const HorseDetails = () => {
@@ -28,18 +28,36 @@ const HorseDetails = () => {
           <Image src={horse.pictures[0]} alt="Horse" width={400} height={300} />
         )}
       </Box>
-      <Text>
-        <strong>Breed:</strong> {horse.breed}
-      </Text>
-      <Text>
-        <strong>Age:</strong> {horse.age}
-      </Text>
-      <Text>
-        <strong>Gender:</strong> {horse.gender}
-      </Text>
-      <Text>
-        <strong>Owner:</strong> {horse.owner}
-      </Text>
+      <Flex >
+        <Box mr={"1rem"}>
+          <Text>
+            <strong>Breed:</strong> {horse.breed}
+          </Text>
+          <Text>
+            <strong>Age:</strong> {horse.age}
+          </Text>
+          <Text>
+            <strong>Gender:</strong> {horse.gender}
+          </Text>
+          <Text>
+            <strong>Owner:</strong> {horse.owner.name}
+          </Text>
+        </Box>
+        <Box>
+          <Text>
+            <strong>Breed:</strong> {horse.breed}
+          </Text>
+          <Text>
+            <strong>Age:</strong> {horse.age}
+          </Text>
+          <Text>
+            <strong>Gender:</strong> {horse.gender}
+          </Text>
+          <Text>
+            <strong>Owner:</strong> {horse.owner.name}
+          </Text>
+        </Box>
+      </Flex>
     </Box>
   );
 };
