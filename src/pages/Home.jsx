@@ -6,7 +6,7 @@ const Home = () => {
     <Box sx={{ height: "100vh" }}>
       <Flex
         sx={{
-          backgroundImage: "url(/imgs/menu-horse.jpg)",
+          backgroundImage: "url(/imgs/menu-horse.webp)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           height: "100%",
