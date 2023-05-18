@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import { Label, Input } from "@rebass/forms";
 import { Box, Flex, Button, Text, Link } from "rebass";
+import { verifyUser } from "../Helpers/userHelper";
 
 const SignIn = () => {
+  // Redirect to finder if user is already logged in
+  if (verifyUser()) {
+    window.location.href = "/finder";
+  }
+
   const [userCredentials, setUserCredentials] = useState({
     email: "",
     password: "",
@@ -93,7 +99,10 @@ const SignIn = () => {
             </Box>
           </Box>
           <Text mt={3}>
-            Don't have an account? <Link href="/register" sx={{ textDecoration: "underline" }}>Register</Link>
+            Don't have an account?{" "}
+            <Link href="/register" sx={{ textDecoration: "underline" }}>
+              Register
+            </Link>
           </Text>
           <Text color="red" mt={3}>
             {error}

@@ -9,6 +9,7 @@ export { default as Home } from "../pages/Home";
 export { default as Register } from "../components/Users/SignUp";
 export { default as Login } from "../components/Users/SignIn";
 export { default as Finder } from "../components/Horses/Finder";
+export { default as FakeFinder } from "../components/Horses/FakeFinder";
 
 
 // Errors

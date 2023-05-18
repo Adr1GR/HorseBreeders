@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 import { Label, Input } from "@rebass/forms";
 import { Box, Flex, Button, Text, Link } from "rebass";
+import { verifyUser } from "../Helpers/userHelper";
 //import { FaFacebookF } from "react-icons/fa";
 //import { BsGoogle } from "react-icons/bs";
 
 const SignUp = () => {
+  // Redirect to finder if user is already logged in
+  if (verifyUser()) {
+    window.location.href = "/finder";
+  }
+
   const [userCredentials, setUserCredentials] = useState({
     name: "",
     email: "",
@@ -46,19 +52,36 @@ const SignUp = () => {
         } else {
           setError({});
           localStorage.setItem("userJWT", data.userJWT);
-          window.location.href = "/";
+          window.location.href = "/finder";
         }
       });
   };
 
   return (
     <>
-      <Flex mt={"8%"}>
-        <Box
-          width={[1 / 5, 1 / 5, 1 / 3]}
-          display={["none", "flex", "flex"]}
-        ></Box>
-        <Box width={[1, 1, 1 / 3]} py={3} mx={3}>
+      <Flex sx={{ height: "96vh" }}>
+        <Box width={1 / 2} display={["none", "none", "flex"]}>
+          <Flex
+            sx={{
+              backgroundImage: "url(/imgs/register-horse.webp)",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "column",
+              boxShadow: "inset -20px 0 20px -20px rgba(0, 0, 0, 0.5)", // Apply the blur effect to the right border
+              filter: "saturate(1.3)"
+            }}
+            pb={5}
+            width={1}
+          />
+        </Box>
+
+        <Box width={[1, 1, 1 / 2]} mx={3} mt={"9%"} px={5}  sx={{
+              borderRadius: "0px 15px 15px 0px",
+        }}>
           <Text className="title-font title-color" mb={"5%"} fontSize={32}>
             Create an account
           </Text>
@@ -147,26 +170,19 @@ const SignUp = () => {
                 Privacy Policy
               </Link>
             </Text>
-            <Button
-              bg={"#1D3557"}
-              type="submit"
-              color="white"
-              width={1}
-              mt={3}
-            >
+            <Button bg={"#1D3557"} type="submit" color="white" width={1} mt={3}>
               <img src="" alt="" />
               {loading ? "Loading..." : "Sign Up"}
             </Button>
             <Text mt={3} width={1}>
-              Already have an account? <Link href="/login" sx={{ textDecoration: "underline" }}>Login</Link>
+              Already have an account?{" "}
+              <Link href="/login" sx={{ textDecoration: "underline" }}>
+                Login
+              </Link>
             </Text>
           </Box>
           <Text color="red" mt={3}></Text>
         </Box>
-        <Box
-          width={[1 / 5, 1 / 5, 1 / 3]}
-          display={["none", "flex", "flex"]}
-        ></Box>
       </Flex>
     </>
   );

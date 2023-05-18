@@ -1,4 +1,4 @@
-import { Navbar, Home, Finder, HorseDetails, Register, Login } from "./hooks";
+import { Navbar, Home, Finder,FakeFinder, HorseDetails, Register, Login } from "./hooks";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/finder" element={<Finder />} />
+          <Route path="/needlogin" element={<FakeFinder />} />
           <Route path="/horse/:id" element={<HorseDetails />}></Route>
         </Routes>
       </main>
