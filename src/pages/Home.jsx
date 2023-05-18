@@ -3,52 +3,102 @@ import { Box, Flex, Text, Link } from "rebass";
 
 const Home = () => {
   return (
-    <Box sx={{
-      height:"85vh",
-      backgroundImage:"url(/src/imgs/menu-horse.jpg)",
-      backgroundSize:"cover",
-      backgroundPosition:"center",
-      display:"flex",
-      alignItems:"center",  
-      justifyContent:"center",
-      flexDirection:"column",
-    }}
-    px={4}
-    >
-      <Text className="title-font title-color" mb={5} fontSize={32}>
-        HorseBreeders
-      </Text>
-      <Text fontSize={24} textAlign="center" mb={4}>
-        Welcome to HorseBreeders
-      </Text>
-      <Text fontSize={16} textAlign="center" mb={6}>
-        Find your horse, breed your horse
-      </Text>
-      <Link
-        variant="primary"
-        href="/register"
+    <Box sx={{ height: "100vh" }}>
+      <Flex
         sx={{
-          backgroundColor: "#1D3557",
-          color: "white",
-          borderRadius: "5px",
-          padding: "10px",
-          fontSize: "16px",
-          cursor: "pointer",
-          outline: "none",
-          border: "none",
-          width: "200px",
-          height: "50px",
-          textDecoration: "none",
+          backgroundImage: "url(/imgs/menu-horse.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          height: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          ":hover": {
-            backgroundColor: "#213c62",
-          },
+          flexDirection: "column",
         }}
+        pb={5}
+        width={1}
       >
-        Get Started
-      </Link>
+        <Box width={"70%"}>
+          <Text className="title-font title-color" fontSize={[16, 24, 24]} sx={{}}>
+            Welcome to
+          </Text>
+          <Text className="title-font title-color" fontSize={[42, 48, 64]}>
+            HorseBreeders
+          </Text>
+          <Text
+            className="title-font title-color"
+            fontSize={[16, 24, 24]}
+            mb={5}
+          >
+            Unleash the beauty of purebred horses
+          </Text>
+          <Flex width={["400px" , "440px", "480px"]}>
+          <Link
+            variant="primary"
+            href="/register"
+            className="title-font  title-color"
+            width={["140px", "160px", "180px"]}
+            fontSize={[16, 16, 20]}
+            mr={3}
+            sx={{
+              backgroundColor: "white",
+              
+              padding: "10px",
+              paddingTop: "15px",
+              cursor: "pointer",
+              outline: "none",
+              height: "50px",
+              textDecoration: "none",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              border: "0.2px solid #000000",
+              boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+              borderRadius: "15px 0px 0px 0px",
+              ":hover": {
+                
+                backgroundColor: "#f7f7f7",
+              },
+            }}
+          >
+            Join Us
+          </Link>
+          <Link
+            variant="primary"
+            href="/register"
+            className="title-font"
+            width={["140px", "160px", "180px"]}
+            fontSize={[16, 16, 20]}
+            sx={{
+              backgroundColor: "#1D3557",
+             color: "white",
+              padding: "10px",
+              paddingTop: "15px",
+              cursor: "pointer",
+              outline: "none",
+              height: "50px",
+              textDecoration: "none",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              border: "0.2px solid #000000",
+              boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+              borderRadius: "15px 0px 0px 0px",
+              ":hover": {
+                backgroundColor: "#213c62",
+              },
+            }}
+          >
+            About
+          </Link>
+          </Flex>
+          
+        </Box>
+      </Flex>
+      <Box bg={"#1D3557"} width={1} height={"10px"}></Box>
+      <Box>
+        <Text textAlign={"center"}>halo</Text>
+      </Box>
     </Box>
   );
 };

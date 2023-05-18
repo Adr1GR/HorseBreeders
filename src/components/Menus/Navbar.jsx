@@ -35,10 +35,10 @@ export default function NavBar() {
   return (
     <>
       {!isOpen && (
-        <Flex color="white" bg={"#1D3557"} alignItems="center" height={[40, 40, 40]}>
+        <Flex color="white" bg={"#1D3557"} alignItems="center" height={44}>
           <Link
             className="title-font"
-            fontSize={20}
+            fontSize={26}
             width={1 / 3}
             ml={3}
             p={0}

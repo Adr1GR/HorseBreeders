@@ -6,7 +6,16 @@
     --font-sans: 'Manrope', medium, sans-serif;
     --font-titles: 'PP Hatton', serif;
     --title-color: #1D3557;
+    --text-color: #eeeeee;
+    font-family: var(--font-sans);
+
+    scrollbar-width: none;
+    
+
 }
+
+/* Hide the scrollbar for webkit-based browsers (Chrome, Safari) */
+  
 
 body {
     font-family: var(--font-sans);
@@ -20,3 +29,13 @@ body {
 .title-color {
     color: var(--title-color);
 }
+
+.text-color {
+    color: var(--text-color);
+}
+
+.blur {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
